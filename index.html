@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lashes by Lyssa — beautiful lashes, cute prices, and confidence.">
+  <title>Lashes by Lyssa 💗</title>
+
+  <style>
+    :root {
+      --pink: #ff4fa3;
+      --light-pink: #ffd6e9;
+      --soft-pink: #fff0f7;
+      --black: #111111;
+      --gray: #6f6f6f;
+      --white: #ffffff;
+      --shadow: 0 12px 35px rgba(255, 79, 163, 0.16);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--soft-pink);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #f4c6dc;
+    }
+
+    nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: var(--pink);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      font-weight: 700;
+      font-size: .92rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--pink);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 700px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 75px 0;
+      background:
+        radial-gradient(circle at 15% 20%, #ffd0e5 0 9%, transparent 10%),
+        radial-gradient(circle at 85% 25%, #ffc1dc 0 7%, transparent 8%),
+        radial-gradient(circle at 50% 100%, #ffd6e9 0 16%, transparent 17%),
+        linear-gradient(135deg, #fff 0%, #fff0f7 55%, #ffdbea 100%);
+    }
+
+    .hero-card {
+      max-width: 850px;
+      padding: 25px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--black);
+      color: white;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.3rem, 11vw, 7rem);
+      line-height: .9;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: var(--pink);
+      display: block;
+      font-style: italic;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: var(--gray);
+      font-size: 1.1rem;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: bold;
+      border: 2px solid var(--black);
+      transition: .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--pink);
+      color: white;
+      border-color: var(--pink);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-dark {
+      background: var(--black);
+      color: white;
+    }
+
+    /* SECTION */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2 span {
+      color: var(--pink);
+    }
+
+    .section-heading p {
+      color: var(--gray);
+    }
+
+    /* SERVICES */
+    .services {
+      background: white;
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .price-card {
+      position: relative;
+      background: var(--soft-pink);
+      border: 1px solid #f6bfd9;
+      border-radius: var(--radius);
+      padding: 32px 25px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .price-card.featured {
+      background: var(--black);
+      color: white;
+      transform: translateY(-8px);
+    }
+
+    .badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--pink);
+      color: white;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: .75rem;
+      font-weight: bold;
+    }
+
+    .lash-icon {
+      font-size: 2.3rem;
+      margin-bottom: 10px;
+    }
+
+    .price-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 7px;
+    }
+
+    .price {
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--pink);
+      margin: 8px 0;
+    }
+
+    .price-card p {
+      color: var(--gray);
+    }
+
+    .featured p {
+      color: #d9d9d9;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .about-box {
+      background: white;
+      border-radius: var(--radius);
+      padding: 35px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-box h3 {
+      font-family: Georgia, serif;
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .about-box h3 span {
+      color: var(--pink);
+    }
+
+    .features {
+      display: grid;
+      gap: 14px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      background: #fff;
+      border: 1px solid #f5cade;
+      padding: 16px;
+      border-radius: 15px;
+    }
+
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--light-pink);
+      font-size: 1.25rem;
+      flex: 0 0 auto;
+    }
+
+    /* GALLERY */
+    .gallery {
+      background: var(--black);
+      color: white;
+    }
+
+    .gallery .section-heading p {
+      color: #cfcfcf;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .gallery-card {
+      min-height: 240px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 20px;
+      background:
+        radial-gradient(circle at 50% 35%, #ff9bc7, transparent 18%),
+        linear-gradient(145deg, #301323, #111);
+      border: 1px solid #442038;
+    }
+
+    .gallery-card div {
+      font-size: 3.2rem;
+    }
+
+    .gallery-card p {
+      color: #ffc9e2;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    /* BOOKING */
+    .booking {
+      background: white;
+    }
+
+    .booking-box {
+      max-width: 760px;
+      margin: auto;
+      background: var(--soft-pink);
+      border: 1px solid #f6bfd9;
+      border-radius: var(--radius);
+      padding: 35px;
+      box-shadow: var(--shadow);
+    }
+
+    form {
+      display: grid;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      font-size: .9rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      margin-top: 7px;
+      padding: 14px 15px;
+      border: 1px solid #e4b2ca;
+      border-radius: 12px;
+      font: inherit;
+      background: white;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--pink);
+      box-shadow: 0 0 0 3px #ff4fa322;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-note {
+      color: var(--gray);
+      font-size: .85rem;
+      text-align: center;
+      margin-top: 5px;
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+      background: linear-gradient(135deg, #ffd8e9, #fff);
+    }
+
+    .contact-card {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .social {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .social span {
+      color: var(--pink);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--black);
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    footer strong {
+      color: var(--pink);
+    }
+
+    footer p {
+      color: #aaa;
+      margin-top: 6px;
+      font-size: .85rem;
+    }
+
+    /* MOBILE */
+    @media (max-width: 760px) {
+      .nav-links {
+        display: none;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero {
+        min-height: 650px;
+      }
+
+      .price-grid,
+      .about-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-card.featured {
+        transform: none;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .booking-box,
+      .about-box {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#home" class="logo">Lashes <span>by Lyssa</span> 💗</a>
+        <ul class="nav-links">
+          <li><a href="#services">Prices</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Lashes</a></li>
+          <li><a href="#booking">Book</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-card">
+        <div class="eyebrow">✨ Beauty • Confidence • Lashes ✨</div>
+        <h1>Lashes <span>by Lyssa</span></h1>
+        <p>
+          Pretty lashes. Cute prices. Main-character energy.
+          Come get a set made just for you. 💕
+        </p>
+
+        <div class="buttons">
+          <a href="#booking" class="btn btn-primary">Book Your Lashes 💗</a>
+          <a href="#services" class="btn btn-dark">View Prices</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Lash <span>Menu</span></h2>
+          <p>Choose your perfect look ✨</p>
+        </div>
+
+        <div class="price-grid">
+
+          <div class="price-card">
+            <div class="lash-icon">🎀</div>
+            <h3>Classic Set</h3>
+            <div class="price">$25</div>
+            <p>Soft, natural, and pretty. Perfect for an everyday look.</p>
+          </div>
+
+          <div class="price-card featured">
+            <div class="badge">MOST POPULAR</div>
+            <div class="lash-icon">💗</div>
+            <h3>Hybrid Set</h3>
+            <div class="price">$28</div>
+            <p>A mix of classic + volume for a fuller, wispy look.</p>
+          </div>
+
+          <div class="price-card">
+            <div class="lash-icon">👑</div>
+            <h3>Volume Set</h3>
+            <div class="price">$30</div>
+            <p>Bold, fluffy, and glam for a dramatic lash look.</p>
+          </div>
+
+        </div>
+
+        <div style="max-width:500px;margin:25px auto 0;">
+          <div class="price-card">
+            <div class="lash-icon">🫧</div>
+            <h3>Lash Shampoo</h3>
+            <div class="price">$5</div>
+            <p>Gentle lash cleansing to help keep your lashes fresh and clean.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Why <span>Lyssa?</span></h2>
+          <p>Because you deserve to feel beautiful. 💕</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-box">
+            <h3>Welcome to <span>Lashes by Lyssa</span></h3>
+            <p>
+              My goal is to make every client feel confident, comfortable,
+              and absolutely gorgeous when they leave.
+            </p>
+            <br>
+            <p>
+              Whether you want something natural or full glam,
+              we can find a lash style that fits you perfectly.
+            </p>
+          </div>
+
+          <div class="features">
+            <div class="feature">
+              <div class="feature-icon">💗</div>
+              <div><strong>Cute + affordable</strong><br>Beautiful lashes without crazy prices.</div>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">✨</div>
+              <div><strong>Custom looks</strong><br>Pick the style and vibe you love.</div>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">🫶</div>
+              <div><strong>Client focused</strong><br>Your comfort and happiness come first.</div>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">🎀</div>
+              <div><strong>Pretty results</strong><br>Leave feeling confident and glam.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" id="gallery">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Lash <span>Inspo</span></h2>
+          <p>Add your own lash photos here when you're ready! 📸</p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-card">
+            <div>👁️✨</div>
+            <p>Wispy</p>
+          </div>
+
+          <div class="gallery-card">
+            <div>👁️💗</div>
+            <p>Hybrid</p>
+          </div>
+
+          <div class="gallery-card">
+            <div>👁️👑</div>
+            <p>Volume</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="booking" id="booking">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Book <span>Your Set</span></h2>
+          <p>Fill this out so we know what look you're wanting. 💕</p>
+        </div>
+
+        <div class="booking-box">
+          <form onsubmit="sendBooking(event)">
+            <label>
+              Your Name
+              <input id="name" type="text" placeholder="Your name" required>
+            </label>
+
+            <label>
+              Choose Your Set
+              <select id="service" required>
+                <option value="">Select a lash set</option>
+                <option>Classic Set — $25</option>
+                <option>Hybrid Set — $28</option>
+                <option>Volume Set — $30</option>
+                <option>Lash Shampoo — $5</option>
+              </select>
+            </label>
+
+            <label>
+              Preferred Date
+              <input id="date" type="date" required>
+            </label>
+
+            <label>
+              Preferred Time
+              <input id="time" type="time" required>
+            </label>
+
+            <label>
+              Anything else?
+              <textarea id="message" placeholder="Tell me about the lash look you want..."></textarea>
+            </label>
+
+            <button class="btn btn-primary" type="submit">
+              Send Booking Request 💗
+            </button>
+
+            <p class="form-note">
+              After submitting, your phone will create a message you can send through your preferred messaging app.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div class="section-heading">
+            <h2>Let's Get <span>Glam</span> 💕</h2>
+            <p>Have a question or want to see more lash looks?</p>
+          </div>
+
+          <div class="social">
+            Instagram: <span>@lyssalashes</span>
+          </div>
+
+          <div class="buttons">
+            <a class="btn btn-primary" href="https://www.instagram.com/" target="_blank">
+              Instagram 📸
+            </a>
+            <a class="btn btn-dark" href="#booking">
+              Book Now ✨
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>💗 <strong>Lashes by Lyssa</strong> 💗</div>
+    <p>Beautiful lashes. Beautiful you.</p>
+    <p>© <span id="year"></span> Lashes by Lyssa</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function sendBooking(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const service = document.getElementById("service").value;
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+      const message = document.getElementById("message").value;
+
+      const text =
+        "Hi Lyssa! 💗 I'd like to book a lash appointment.%0A%0A" +
+        "Name: " + encodeURIComponent(name) + "%0A" +
+        "Service: " + encodeURIComponent(service) + "%0A" +
+        "Date: " + encodeURIComponent(date) + "%0A" +
+        "Time: " + encodeURIComponent(time) + "%0A" +
+        "Message: " + encodeURIComponent(message);
+
+      /*
+        IMPORTANT:
+        Replace the number below with your business phone number
+        in international format, WITHOUT +, spaces, or dashes.
+
+        Example:
+        const phone = "15551234567";
+      */
+      const phone = "";
+
+      if (!phone) {
+        alert(
+          "Your booking form is working! 💗\n\n" +
+          "Before clients can send the request automatically, add your business phone number " +
+          "to the 'const phone' line in this file."
+        );
+        return;
+      }
+
+      window.location.href = "https://wa.me/" + phone + "?text=" + text;
+    }
+  </script>
+
+</body>
+</html>
